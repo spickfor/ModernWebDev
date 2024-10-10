@@ -22,11 +22,13 @@ const CustomerSupport = () => {
         
         try {
             const results = await query.find();
+            console.log("Results fetched:", results);
             const fetchedIssues = results.map(issue => ({
                 name: issue.get("name"), // Change to 'name'
                 description: issue.get("description"),
                 status: issue.get("status") // Add status to fetched data
             }));
+            console.log("Fetched issues:", fetchedIssues);
             setIssues(fetchedIssues); // Set the fetched issues to state
             setErrorMessage(''); // Clear any previous error message
         } catch (error) {
