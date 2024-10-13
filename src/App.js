@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Main from './Main/Main.js';
 import CustomerSupport from './CustomerSupport/customerSupport.js'
@@ -13,9 +13,6 @@ Parse.serverURL = ENV.SERVER_URL;
 
 function App() {
   return (
-    // <div className="App">
-    //   <Main/>
-    // </div>
 
   <Router>
     <div className="App">
