@@ -1,7 +1,7 @@
 import {useEffect, useState } from "react";
 import React from 'react';
 import './Main.css'; // import our css
-import logo from './images/logo.jpg'; // import our logo, for some reason trying to do it relatively in the img tag wasn't working
+import logo from '../images/logo.jpg';
 import { Link } from 'react-router-dom'; // for linking pages
 
 
@@ -15,12 +15,8 @@ const Main = () => {
                 </Link>
                 <Link to='/'>Home</Link>
                 {/* <a href = '/'>Home</a> */}
-
-                {/* <a href="/second-page">Page 2</a>
-                <a href="/third-page">Page 3</a>
-                <a href="/fourth-page">Page 4</a> */}
-
-
+                <Link to="/Workouts">Workouts</Link>
+                <Link to="/Recipes">Recipes</Link>
                 <Link to="/customer-support">Customer Support</Link>
                 {/* <a href='../CustomerSupport/customerSupport.js'>Customer Support</a> */}
             </nav>

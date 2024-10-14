@@ -2,6 +2,7 @@ import {useEffect, useState } from "react";
 import React from 'react';
 import { Link } from 'react-router-dom'; // for linking pages
 import './CustomerSupport.css' // import cs file
+import logo from '../images/logo.jpg';
 
 
 import * as ENV from "../environments.js";
@@ -40,7 +41,13 @@ const CustomerSupport = () => {
     return (
         <div>
             <nav>
+                <Link to='/'>
+                    <img src = {logo} className="logo"/>
+                </Link>
                 <Link to='/'>Home</Link>
+                <Link to="/Workouts">Workouts</Link>
+                <Link to="/Recipes">Recipes</Link>
+                <Link to="/customer-support">Customer Support</Link>
             </nav>
 
             <h1>Customer Support</h1>
