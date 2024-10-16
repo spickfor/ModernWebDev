@@ -9,6 +9,8 @@ const Main = () => {
 
     return (
         <div>
+
+
             <nav>
                 <Link to='/'>
                     <img src = {logo} className="logo"/>
@@ -20,7 +22,7 @@ const Main = () => {
                 <Link to="/customer-support">Customer Support</Link>
                 {/* <a href='../CustomerSupport/customerSupport.js'>Customer Support</a> */}
             </nav>
-            <h1 className="protest-guerrilla-regular">Web-Dev Feature 3 Site</h1>
+            <h1 className="protest-guerrilla-regular">Web-Dev Feature 4 Site</h1>
             <p className="cutive-regular">
                 This is the home page on my site it doesn't do much right now, but will in the future.
             </p>

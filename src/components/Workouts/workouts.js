@@ -3,8 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // for linking pages
 import './workouts.css' // import css file
 import logo from '../images/logo.jpg';
+import { fetchWorkouts } from "../../Services/WorkoutsServices/workouts.services"
 
-import * as ENV from "../environments.js";
+import * as ENV from "../../environments.js";
 import Parse from "parse";
 
 Parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY);
@@ -14,35 +15,45 @@ Parse.serverURL = ENV.SERVER_URL;
 const WorkoutsPage = () => {
     const [workouts, setWorkouts] = useState([]);  // State to hold workout data
     const [errorMessage, setErrorMessage] = useState(''); // State for errors
-  
-    // Function to fetch all workouts
-    const fetchWorkouts = async () => {
-      const Workout = Parse.Object.extend("WorkoutRoutine"); // 'WorkoutRoutine' is the table name in Back4App
-      const query = new Parse.Query(Workout);
-  
+
+    const handleFetchWorkouts = async () => {
       try {
-        const results = await query.find();
-        console.log("Fetched workouts:", results);
-        
-        // Map fetched workout objects into an array of workout details
-        const fetchedWorkouts = results.map(workout => ({
-          date: workout.get("createdAt").toLocaleDateString(),
-          workout_name: workout.get("routine_name"),
-          description: workout.get("routine_description"),
-          equipment: workout.get("routine_equipment"),
-          duration: workout.get("duration"),
-          calories_burned: workout.get("calories_burned")
-        }));
-        setWorkouts(fetchedWorkouts);  // Store workouts in state
+          const fetchedWorkouts = await fetchWorkouts(); // Call the service function
+          setWorkouts(fetchedWorkouts); // Set the fetched issues to state
+          setErrorMessage(''); // Clear any previous error message
       } catch (error) {
-        console.error("Error fetching workouts:", error);
-        setErrorMessage("There was an error fetching the workouts.");
+          setErrorMessage("There was an error fetching the issues.");
       }
     };
   
+    // // Function to fetch all workouts
+    // const fetchWorkouts = async () => {
+    //   const Workout = Parse.Object.extend("WorkoutRoutine"); // 'WorkoutRoutine' is the table name in Back4App
+    //   const query = new Parse.Query(Workout);
+  
+    //   try {
+    //     const results = await query.find();
+    //     console.log("Fetched workouts:", results);
+        
+    //     // Map fetched workout objects into an array of workout details
+    //     const fetchedWorkouts = results.map(workout => ({
+    //       date: workout.get("createdAt").toLocaleDateString(),
+    //       workout_name: workout.get("routine_name"),
+    //       description: workout.get("routine_description"),
+    //       equipment: workout.get("routine_equipment"),
+    //       duration: workout.get("duration"),
+    //       calories_burned: workout.get("calories_burned")
+    //     }));
+    //     setWorkouts(fetchedWorkouts);  // Store workouts in state
+    //   } catch (error) {
+    //     console.error("Error fetching workouts:", error);
+    //     setErrorMessage("There was an error fetching the workouts.");
+    //   }
+    // };
+  
     // Fetch workouts on component mount
     useEffect(() => {
-      fetchWorkouts();
+      handleFetchWorkouts();
     }, []);
   
     return (

@@ -3,8 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // for linking pages
 import './recipes.css' // import css file
 import logo from '../images/logo.jpg';
+import { fetchRecipes } from "../../Services/RecipesServices/Recipes.services";
 
-import * as ENV from "../environments.js";
+import * as ENV from "../../environments.js";
 import Parse from "parse";
 
 Parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY);
@@ -15,32 +16,20 @@ const RecipesPage = () => {
     const [recipes, setRecipes] = useState([]);  // State to hold recipe data
     const [errorMessage, setErrorMessage] = useState(''); // State for errors
   
-    // Function to fetch all recipes
-    const fetchRecipes = async () => {
-      const Recipe = Parse.Object.extend("Recipes"); // 'Reciipes' is the table name in Back4App
-      const query = new Parse.Query(Recipe);
-  
+    const handleFetchRecipes = async () => {
       try {
-        const results = await query.find();
-        console.log("Fetched recipes:", results);
-        
-        // Map fetched recipe objects into an array of recipe details
-        const fetchedRecipes = results.map(recipe => ({
-          date: recipe.get("createdAt").toLocaleDateString(),
-          recipe_title: recipe.get("title"),
-          ingredients: recipe.get("ingredients"),
-          instructions: recipe.get("instructions")
-        }));
-        setRecipes(fetchedRecipes);  // Store recipes in state
+          const fetchedWorkouts = await fetchRecipes(); // Call the service function
+          setRecipes(fetchedWorkouts); // Set the fetched issues to state
+          setErrorMessage(''); // Clear any previous error message
       } catch (error) {
-        console.error("Error fetching recipes:", error);
-        setErrorMessage("There was an error fetching the recipes.");
+          setErrorMessage("There was an error fetching the issues.");
       }
     };
+
   
     // Fetch recipe on component mount
     useEffect(() => {
-      fetchRecipes();
+      handleFetchRecipes();
     }, []);
   
     return (
@@ -52,6 +41,7 @@ const RecipesPage = () => {
             </Link>
             <Link to='/'>Home</Link>
             <Link to="/Workouts">Workouts</Link>
+            <Link to="/Recipes">Recipes</Link>
             <Link to="/customer-support">Customer Support</Link>
         </nav>
         <h1>All Recipes</h1>
