@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'; // for linking pages
 import './CustomerSupport.css' // import css file
 import logo from '../images/logo.jpg';
 import { fetchIssues } from "../../Services/CustomersupportServices/CustomerSupport.service";
+import SupportIssueCard from "./SupportIssueCard";
 
 
 
@@ -42,13 +43,11 @@ const CustomerSupport = () => {
 
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Display error message */}
             
-            <ul>
+            <div className="issues-container">
                 {issues.map((issue, index) => (
-                    <li key={index}>
-                        <strong>{issue.name}</strong>: {issue.description} <em>(Status: {issue.status})</em>
-                    </li>
+                    <SupportIssueCard key={index} issue={issue} />
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
