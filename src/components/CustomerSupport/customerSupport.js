@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'; // for linking pages
 import './CustomerSupport.css' // import css file
 import logo from '../images/logo.jpg';
 import { fetchIssues } from "../../Services/CustomersupportServices/CustomerSupport.service";
-import SupportIssueCard from "./SupportIssueCard";
+import SupportIssueCard from "./SupportIssueCard"; // import child component
 
 
 
