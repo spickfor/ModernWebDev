@@ -1,6 +1,7 @@
-// import logo from './images/logo.jpg';
+// App.js
 import './App.css';
 import Main from './components/Main/Main.js';
+import Components from './components/components.js'
 import CustomerSupport from './components/CustomerSupport/customerSupport.js';
 import Workouts from './components/Workouts/workouts.js';
 import Recipes from './components/Recipes/recipes.js';
@@ -15,17 +16,17 @@ Parse.serverURL = ENV.SERVER_URL;
 
 function App() {
   return (
-    // <Main />
-    <Router>
-      <div className="App">
-          <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/customer-support" element={<CustomerSupport />} />
-              <Route path="/Workouts" element={<Workouts />}/>
-              <Route path="/Recipes" element={<Recipes />}/>
-          </Routes>
-      </div>
-    </Router>
+    <Components />
+    // <Router>
+    //   <div className="App">
+    //       <Routes>
+    //           <Route path="/" element={<Main />} />
+    //           <Route path="/customer-support" element={<CustomerSupport />} />
+    //           <Route path="/Workouts" element={<Workouts />}/>
+    //           <Route path="/Recipes" element={<Recipes />}/>
+    //       </Routes>
+    //   </div>
+    // </Router>
 
   );
 
