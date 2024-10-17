@@ -1,55 +1,27 @@
-import {useEffect, useState } from "react";
 import React from 'react';
 import { Link } from 'react-router-dom'; // for linking pages
-import './CustomerSupport.css' // import css file
+import './CustomerSupport.css'; // import css file
 import logo from '../images/logo.jpg';
-import { fetchIssues } from "../../Services/CustomersupportServices/CustomerSupport.service";
-import SupportIssueCard from "./SupportIssueCard"; // import child component
-
-
-
+import CustomerSupportContent from './CustomerSupportContent'; // Import the child component
 
 const CustomerSupport = () => {
-    const [issues, setIssues] = useState([]); // State to store issues
-    const [errorMessage, setErrorMessage] = useState(''); // State to store error message
+  return (
+    <div>
+      <nav>
+        <Link to='/'>
+          <img src={logo} className="logo" alt="logo" />
+        </Link>
+        <Link to='/'>Home</Link>
+        <Link to="/Workouts">Workouts</Link>
+        <Link to="/Recipes">Recipes</Link>
+        <Link to="/customer-support">Customer Support</Link>
+      </nav>
+      <h1>Customer Support</h1>
 
-    // Function to handle our fetching of all the issues when button is hit
-    const handleFetchIssues = async () => {
-        try {
-            const fetchedIssues = await fetchIssues(); // Call the service function
-            setIssues(fetchedIssues); // Set the fetched issues to state
-            setErrorMessage(''); // Clear any previous error message
-        } catch (error) {
-            setErrorMessage("There was an error fetching the issues.");
-        }
-    };
-
-
-
-    return (
-        <div>
-            <nav>
-                <Link to='/'>
-                    <img src = {logo} className="logo"/>
-                </Link>
-                <Link to='/'>Home</Link>
-                <Link to="/Workouts">Workouts</Link>
-                <Link to="/Recipes">Recipes</Link>
-                <Link to="/customer-support">Customer Support</Link>
-            </nav>
-
-            <h1>Customer Support</h1>
-            <button onClick={handleFetchIssues}>Fetch Issues</button>
-
-            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Display error message */}
-            
-            <div className="issues-container">
-                {issues.map((issue, index) => (
-                    <SupportIssueCard key={index} issue={issue} />
-                ))}
-            </div>
-        </div>
-    );
+      {/* Import the child component which contains the support issues */}
+      <CustomerSupportContent />
+    </div>
+  );
 };
 
 export default CustomerSupport;
