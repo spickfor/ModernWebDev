@@ -1,9 +1,5 @@
 import Parse from "parse";
 
-// Initialize Parse with environment variables
-import * as ENV from "../../environments.js";
-Parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY);
-Parse.serverURL = ENV.SERVER_URL;
 
 // Fetch issues from the Parse database
 export const fetchIssues = async () => {
