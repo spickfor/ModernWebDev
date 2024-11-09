@@ -1,6 +1,29 @@
 
 # Change Log
 All notable changes to this project will be documented in this file.
+
+
+## [Unreleased] - version 0.3.0
+ 
+### Added
+- Log in Page
+- Account Creation
+- Authentication aspect
+- Protected Routing
+ 
+### Changed
+ - Changed up routing a bit to make protected
+ - General minor changes
+
+### Fixed
+- No fixes from last week to this week beyond the protection of routes to make it safer
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
  
 ## [Unreleased] - version 0.2.0
 
@@ -20,3 +43,5 @@ Here we write upgrading notes for brands. It's a team effort to make them as str
 - Had to distance ourselves from pokemon after the Typhlosion scandal
 - customer support page works now
 - navbar works a little different now (use link)
+
+
