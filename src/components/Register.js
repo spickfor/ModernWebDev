@@ -1,6 +1,6 @@
 // src/components/Register.js
 import React, { useContext, useState } from 'react';
-import { AuthContext } from '../AuthProvider';
+import { AuthContext } from '../authProvider';
 
 const Register = () => {
     const { register } = useContext(AuthContext);
