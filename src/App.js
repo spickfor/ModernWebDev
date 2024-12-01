@@ -1,4 +1,3 @@
-// App.js
 import './App.css';
 import Main from './components/Main/Main.js';
 import Components from './components/components.js';
@@ -13,6 +12,7 @@ import Register from './auth/components/Register';
 import ProtectedRoute from './auth/services/protectedRoute';
 import { AuthProvider } from './auth/AuthProvider';
 
+// Initialize Parse with environment variables
 Parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY);
 Parse.serverURL = ENV.SERVER_URL;
 
