@@ -11,6 +11,7 @@ const WorkoutContent = () => {
     const handleFetchWorkouts = async () => {
         try {
             const fetchedWorkouts = await fetchWorkouts(); // Call the service function
+            console.log("Fetched Workouts:", fetchedWorkouts) // logging fetched workouts
             setWorkouts(fetchedWorkouts); // Set the fetched issues to state
             setErrorMessage(''); // Clear any previous error message
         } catch (error) {
@@ -19,8 +20,18 @@ const WorkoutContent = () => {
     };
 
     // Fetch workouts on component mount
+    // useEffect(() => {
+    //     handleFetchWorkouts();
+    // }, []);
     useEffect(() => {
-        handleFetchWorkouts();
+        handleFetchWorkouts(); // Initial fetch
+
+        // Poll every 10 seconds
+        const interval = setInterval(() => {
+            handleFetchWorkouts();
+        }, 10000); // Fetch every 10 seconds
+
+        return () => clearInterval(interval); // Cleanup on unmount
     }, []);
 
     return (
