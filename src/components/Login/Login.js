@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Parse from 'parse';
+import logo from '../images/logo.jpg';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -25,12 +26,17 @@ const Login = () => {
 
     return (
         <div>
+
+            <nav>
+                <img src = {logo} className="logo"/>
+            </nav>
+
             <h2>Login</h2>
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             <form onSubmit={handleLogin}>
                 <input
                     type="text"
-                    placeholder="Username"
+                    placeholder="Usesrname"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required

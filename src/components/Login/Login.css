@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f7f7f7;
+    background-color: #000080;
     padding: 20px;
 }
 
@@ -21,7 +21,7 @@ form {
     flex-direction: column;
     width: 100%;
     max-width: 400px;
-    background-color: white;
+    background-color: #000080;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -60,3 +60,85 @@ button:hover {
     margin-top: 10px;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+h1 {
+    text-decoration: underline;
+  }
+  
+  nav {
+    background-color: #001f3f;
+    color: navy;
+    padding: 1em;
+  }
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  /* Here is the code that makes the nav bar change as the size of the screen does */
+  
+  @media (max-width: 768px) {
+    nav {
+      text-align: center;
+    }
+    nav a {
+      display: block;
+      margin: 10px 0;
+    }
+  }
+  @media (max-width: 480px) {
+    body {
+      font-size: 0.9em;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  
+  /* Here I change the font of the body from the default style */
+  
+  .cutive-regular {
+    /* font-family: "Cutive", serif; */
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Here I cahnged the font of the header from the default style */
+  .protest-guerrilla-regular {
+    /* font-family: "Protest Guerrilla", sans-serif; */
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Here I add something that shows the user which part of the navbar their muse is over */
+  
+  nav {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  nav a {
+    border-bottom: 2px solid transparent; /* Bottom border */
+  }
+  
+  nav a:hover {
+    border-bottom: 2px solid white; /* Border color on hover */
+  }
+  
+  /* Here I set up the code to add a logo to the nav bar */
+  nav .logo {
+    height: 40px;
+    vertical-align: middle;
+  }
+  

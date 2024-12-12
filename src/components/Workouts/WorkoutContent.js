@@ -3,6 +3,11 @@ import React from 'react';
 import './workouts.css'; // import css file
 import { fetchWorkouts } from "../../Services/WorkoutsServices/workouts.services";
 import WorkoutCard from './WorkoutCard'; // Import the WorkoutCard component
+import WorkoutCard2 from './WorkoutCard2';
+import WorkoutCard3 from './WorkoutCard3';
+import WorkoutCard4 from './WorkoutCard4';
+import WorkoutCard5 from './WorkoutCard5';
+
 
 const WorkoutContent = () => {
     const [workouts, setWorkouts] = useState([]);  // State to hold workout data
@@ -37,7 +42,35 @@ const WorkoutContent = () => {
                 ) : (
                     <p>No workouts found.</p>
                 )}
+                {workouts.length > 0 ? (
+                    workouts.map((workout, index) => (
+                        <WorkoutCard2 key={index} workout={workout} />
+                    ))
+                ) : (
+                    <p>No workouts found.</p>
+                )}
             </div>
+            {workouts.length > 0 ? (
+                    workouts.map((workout, index) => (
+                        <WorkoutCard3 key={index} workout={workout} />
+                    ))
+                ) : (
+                    <p>No workouts found.</p>
+                )}
+                {workouts.length > 0 ? (
+                    workouts.map((workout, index) => (
+                        <WorkoutCard4 key={index} workout={workout} />
+                    ))
+                ) : (
+                    <p>No workouts found.</p>
+                )}
+                {workouts.length > 0 ? (
+                    workouts.map((workout, index) => (
+                        <WorkoutCard5 key={index} workout={workout} />
+                    ))
+                ) : (
+                    <p>No workouts found.</p>
+                )}
         </div>
     );
 };
