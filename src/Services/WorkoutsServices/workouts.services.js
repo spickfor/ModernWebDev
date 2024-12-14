@@ -17,10 +17,27 @@ import Parse from "parse";
             description: workout.get("routine_description"),
             equipment: workout.get("routine_equipment"),
             duration: workout.get("duration"),
-            calories_burned: workout.get("calories_burned")
+            calories_burned: workout.get("calories_burned"),
+            video: workout.get("routine_exercises")
           }));
           return fetchedWorkouts;  // return our workouts
         } catch (error) {
           console.error("Error fetching workouts:", error);
         }
       };
+
+
+// Function for creating workouts
+export const createWorkout = async (workout) => {
+  const Workout = Parse.Object.extend("WorkoutRoutine");
+  const newWorkout = new Workout();
+
+  newWorkout.set("routine_name", workout.workout_name);
+  newWorkout.set("routine_description", workout.description);
+  newWorkout.set("routine_equipment", workout.equipment);
+  newWorkout.set("duration", workout.duration);
+  newWorkout.set("calories_burned", workout.calories_burned);
+  newWorkout.set("routine_exercises", workout.video);
+
+  await newWorkout.save();
+};
