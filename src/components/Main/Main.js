@@ -20,6 +20,7 @@ const Main = () => {
                 <Link to="/Workouts">Workouts</Link>
                 <Link to="/Recipes">Recipes</Link>
                 <Link to="/customer-support">Customer Support</Link>
+                <Link to="/Chatbot">Chat bot</Link> 
                 {/* <a href='../CustomerSupport/customerSupport.js'>Customer Support</a> */}
             </nav>
             <h1 className="protest-guerrilla-regular">Web-Dev Feature 4 Site</h1>

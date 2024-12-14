@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 
 
+## [Unreleased] - version 0.4.0
+ 
+### Added
+- Post Creation
+- videos
+- Chatbot
+- General Style updates
+- Semi live updates (every 10 seconds)
+ 
+### Changed
+ - Workout display visuals
+
+### Fixed
+- No fixes
+
+---------------------------------------------------------------------------------------
+
+
 ## [Unreleased] - version 0.3.0
  
 ### Added
